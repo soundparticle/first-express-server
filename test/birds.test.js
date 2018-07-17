@@ -41,7 +41,7 @@ describe('Birds API', () => {
 
     it('gets a list of birds', () => {
         let dove;
-        return save({ name: 'dove' })
+        return save({ name: 'Dove' })
             .then(_dove => {
                 dove = _dove;
                 return request.get('/api/birds');
