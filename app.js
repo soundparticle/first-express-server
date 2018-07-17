@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.get('/fruits/:id', (req, res) => {
+app.get('/birds/:id', (req, res) => {
     const { path, method, params, query } = req;
 
     res.json({
