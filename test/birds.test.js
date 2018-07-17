@@ -53,5 +53,17 @@ describe('Birds API', () => {
             });
     });
 
+    it('updates a bird', () => {
+        robin.sex = 'male';
+        return request
+            .put(`/api/birds/${robin._id}`)
+            .send(robin)
+            .then(({ body }) => {
+                assert.deepEqual(body, robin);
+                console.log('** bird update **', body);
+
+            });
+    });
+
 
 });
