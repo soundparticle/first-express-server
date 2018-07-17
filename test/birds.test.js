@@ -34,8 +34,22 @@ describe('Birds API', () => {
         return request
             .get(`/api/birds/${robin._id}`)
             .then(({ body }) => {
-                console.log('** body **', body);
+                console.log('** a bird body **', body);
                 assert.deepEqual(body, robin);
+            });
+    });
+
+    it('gets a list of birds', () => {
+        let dove;
+        return save({ name: 'dove' })
+            .then(_dove => {
+                dove = _dove;
+                return request.get('/api/birds');
+            })
+            .then(({ body }) => {
+                console.log('** bird list **', body);
+
+                assert.deepEqual(body, [robin, dove]);
             });
     });
 
