@@ -34,7 +34,6 @@ describe('Birds API', () => {
         return request
             .get(`/api/birds/${robin._id}`)
             .then(({ body }) => {
-                console.log('** a bird body **', body);
                 assert.deepEqual(body, robin);
             });
     });
@@ -47,8 +46,6 @@ describe('Birds API', () => {
                 return request.get('/api/birds');
             })
             .then(({ body }) => {
-                console.log('** bird list **', body);
-
                 assert.deepEqual(body, [robin, dove]);
             });
     });
@@ -60,8 +57,6 @@ describe('Birds API', () => {
             .send(robin)
             .then(({ body }) => {
                 assert.deepEqual(body, robin);
-                console.log('** bird update **', body);
-
             });
     });
 
@@ -72,8 +67,15 @@ describe('Birds API', () => {
                 return request.get('/api/birds');
             })
             .then(({ body }) => {
-                console.log('** body **', body);
                 assert.deepEqual(body, []);
+            });
+    });
+
+    it('returns 404 on bad url', () => {
+        return request  
+            .get('/api/bad')
+            .then(res => {
+                assert.equal(res.status, 404);
             });
     });
 
