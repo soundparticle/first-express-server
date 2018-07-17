@@ -65,5 +65,17 @@ describe('Birds API', () => {
             });
     });
 
+    it('deletes a bird', () => {
+        return request
+            .del(`/api/birds/${robin._id}`)
+            .then(() => {
+                return request.get('/api/birds');
+            })
+            .then(({ body }) => {
+                console.log('** body **', body);
+                assert.deepEqual(body, []);
+            });
+    });
+
 
 });
