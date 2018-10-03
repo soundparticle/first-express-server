@@ -1,19 +1,9 @@
-This is a simple database of birds that allows you to add, update, post single birds or group lists of birds.
+This is an very simple database of birds I created this as an early experiment into CRUD(create ,read ,update ,delete) operations.  The app allows you to add, update, post, and delete single birds or a group lists of birds. Full CRUD! I included TDD testing of CRUD operations too!
 
-Written by:
+Coded by:
 Antreo Pukay
 
-Have the following installed:
-
-"devDependencies": {
-    "chai": "^4.1.2",
-    "chai-http": "^4.0.0"
-  },
-  "dependencies": {
-    "dotenv": "^6.0.0",
-    "eslint": "^5.1.0",
-    "express": "^4.16.3",
-    "mocha": "^5.2.0",
-    "mongodb": "^3.1.1",
-    "nodemon": "^1.18.2"
-  }
+This app uses:
+Mocha/Chai: for testing.
+Express: for routing.
+MongoDB: for database.
